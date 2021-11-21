@@ -1,3 +1,5 @@
+import sys
+
 from bottle import Bottle
 import levels
 
@@ -21,8 +23,6 @@ def pour_bottle_to_bottle(bottle_from: Bottle, bottle_to: Bottle):
         bottle_to.add_contents(bottle_from.remove_contents())
         if len(bottle_from.contents) != 0 and bottle_from.contents[-1] == bottle_to.contents[-1]:
             pour_bottle_to_bottle(bottle_from, bottle_to)
-        else:
-            print('Stop pouring')
     else:
         print('*** Invalid Pour ***')
 
@@ -42,8 +42,16 @@ if __name__ == '__main__':
     b_to_str = ''
 
     while not is_game_complete(list_of_bottles.values()) and b_from_str != 'q' and b_to_str != 'q':
-        b_from_str = input("Select bottle to pour from: ")
+        b_from_str = input(f"Select a bottle to pour from ({', '.join(list(list_of_bottles.keys()))}) or q to quit: ")
+        if b_from_str == 'q':
+            sys.exit()
+        if b_from_str not in list_of_bottles.keys():
+            print('Selection not in list')
+            continue
         b_to_str = input("Select bottle to pour to: ")
+        if b_to_str not in list_of_bottles.keys():
+            print('Selection not in list')
+            continue
 
         b_from = list_of_bottles[b_from_str]
         b_to = list_of_bottles[b_to_str]
