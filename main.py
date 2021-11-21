@@ -34,7 +34,7 @@ def is_game_complete(list_of_bottles):
 
 if __name__ == '__main__':
     """ Recode of Water Sort Puzzle game developed by IEC GLOBAL PTY LTD for learning purpose only"""
-    list_of_bottles = levels.get_games(**levels.level_dict[4])
+    list_of_bottles = levels.get_games(**levels.level_dict[5])
 
     print_board(list_of_bottles.values())
 
@@ -51,6 +51,9 @@ if __name__ == '__main__':
         b_to_str = input("Select bottle to pour to: ")
         if b_to_str not in list_of_bottles.keys():
             print('Selection not in list')
+            continue
+        if b_to_str == b_from_str:
+            print('You can not select the same bottle')
             continue
 
         b_from = list_of_bottles[b_from_str]
