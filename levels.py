@@ -14,12 +14,12 @@ def get_games(bottle_number: int, bottle_contents: dict, bottle_volume: int) -> 
     return dict_bottles
 
 
-level_dict = {1: {'bottle_contents': {'b1': ['0'],
+level_dict = {1: {'bottle_contents': {'b1': ['O'],
                                       'b2': [*'OO']},
                   'bottle_number': 2,
                   'bottle_volume': 3},
               2: {'bottle_contents': {'b1': [*'BOBO'],
-                                     'b2': [*'OBOB']},
+                                      'b2': [*'OBOB']},
                   'bottle_number': 3,
                   'bottle_volume': 4,
                   },
@@ -40,6 +40,13 @@ level_dict = {1: {'bottle_contents': {'b1': ['0'],
                                       'b3': 'PK R O R'.split(),
                                       'b4': 'O PK R B'.split(),
                                       'b5': 'NG NG R B'.split()},
+                  'bottle_number': 7,
+                  'bottle_volume': 4},
+              6: {'bottle_contents': {'b1': 'R NG NG NG'.split(),
+                                      'b2': 'O R PK NG'.split(),
+                                      'b3': 'PK O R O'.split(),
+                                      'b4': 'B PK O PK'.split(),
+                                      'b5': 'B B B R'.split()},
                   'bottle_number': 7,
                   'bottle_volume': 4},
               }

@@ -34,7 +34,12 @@ def is_game_complete(list_of_bottles):
 
 if __name__ == '__main__':
     """ Recode of Water Sort Puzzle game developed by IEC GLOBAL PTY LTD for learning purpose only"""
-    list_of_bottles = levels.get_games(**levels.level_dict[5])
+
+    min_level = list(levels.level_dict.keys())[0]
+    max_level = list(levels.level_dict.keys())[-1]
+
+    level = input(f"Select a level from {min_level} - {max_level}: ")
+    list_of_bottles = levels.get_games(**levels.level_dict[int(level)])
 
     print_board(list_of_bottles.values())
 
