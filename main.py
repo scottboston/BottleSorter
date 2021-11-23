@@ -27,9 +27,9 @@ def pour_bottle_to_bottle(bottle_from: Bottle, bottle_to: Bottle):
         print('*** Invalid Pour ***')
 
 
-def is_game_complete(list_of_bottles):
+def is_game_complete(list_bottles):
     """Check to see if all bottles are sorted"""
-    return sum(not b.is_bottle_complete() for b in list_of_bottles) == 0
+    return sum(not b.is_bottle_complete() for b in list_bottles) == 0
 
 
 if __name__ == '__main__':
@@ -66,5 +66,3 @@ if __name__ == '__main__':
 
         pour_bottle_to_bottle(b_from, b_to)
         print_board(list_of_bottles.values())
-
-
