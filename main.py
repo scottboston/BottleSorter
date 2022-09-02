@@ -19,7 +19,7 @@ def print_board(list_bottles):
 def pour_bottle_to_bottle(bottle_from: Bottle, bottle_to: Bottle):
     """Pours the top contents from one bottle to another and check to see
        pour is valid"""
-    if bottle_to.valid_pour(bottle_from.contents[-1]):
+    if len(bottle_from.contents) > 0 and bottle_to.valid_pour(bottle_from.contents[-1]):
         bottle_to.add_contents(bottle_from.remove_contents())
         if len(bottle_from.contents) != 0 and bottle_from.contents[-1] == bottle_to.contents[-1]:
             pour_bottle_to_bottle(bottle_from, bottle_to)
@@ -30,6 +30,7 @@ def pour_bottle_to_bottle(bottle_from: Bottle, bottle_to: Bottle):
 def is_game_complete(list_bottles):
     """Check to see if all bottles are sorted"""
     return sum(not b.is_bottle_complete() for b in list_bottles) == 0
+
 
 
 if __name__ == '__main__':
