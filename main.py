@@ -35,7 +35,7 @@ def is_game_complete(list_bottles):
     return sum(not b.is_bottle_complete() for b in list_bottles) == 0
 
 
-if __name__ == "__main__":
+def play_game():
     """Recode of Water Sort Puzzle game developed by IEC GLOBAL PTY LTD for learning purpose only"""
 
     min_level = list(levels.level_dict.keys())[0]
@@ -50,9 +50,9 @@ if __name__ == "__main__":
     b_to_str = ""
 
     while (
-        not is_game_complete(list_of_bottles.values())
-        and b_from_str != "q"
-        and b_to_str != "q"
+            not is_game_complete(list_of_bottles.values())
+            and b_from_str != "q"
+            and b_to_str != "q"
     ):
         b_from_str = input(
             f"Choose a bottle to pour from ({', '.join(list(list_of_bottles.keys()))}) or q to quit: "
@@ -75,3 +75,6 @@ if __name__ == "__main__":
 
         pour_bottle_to_bottle(b_from, b_to)
         print_board(list_of_bottles.values())
+
+if __name__ == "__main__":
+    play_game()
