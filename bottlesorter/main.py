@@ -1,7 +1,7 @@
 import sys
 
-from bottle import Bottle
-import levels
+from bottlesorter.bottle import Bottle
+from bottlesorter import levels
 
 
 def print_board(list_bottles):
@@ -76,5 +76,7 @@ def play_game():
         pour_bottle_to_bottle(b_from, b_to)
         print_board(list_of_bottles.values())
 
+
 if __name__ == "__main__":
     play_game()
+
