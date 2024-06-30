@@ -12,6 +12,9 @@ def print_board(list_bottles):
 
     if is_game_complete(list_bottles):
         print("Game Complete")
+        again = input('Play again? [Y/N] ')
+        if again and again.upper() in ('Y', 'YES'):
+            play_game()
     else:
         print("Next move?\n")
 
