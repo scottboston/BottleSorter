@@ -1,4 +1,4 @@
-from bottlesorter.bottle import Bottle
+from bottle import Bottle
 
 
 def get_games(bottle_number: int, bottle_contents: dict, bottle_volume: int) -> dict:

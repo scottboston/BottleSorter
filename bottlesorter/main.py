@@ -1,7 +1,7 @@
 import sys
 
-from bottlesorter.bottle import Bottle
-from bottlesorter import levels
+from bottle import Bottle
+import levels
 
 
 def print_board(list_bottles):

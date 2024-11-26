@@ -6,7 +6,7 @@ class Bottle:
         self.contents = []
         self.name = name
 
-    def draw_bottle(self):
+    def draw_bottle(self) -> None:
         """To be used later"""
         print("+-----+")
         for i in range(self.volume, -1, -1):
@@ -18,27 +18,27 @@ class Bottle:
             # print('|     |')
         print("+-----+")
 
-    def add_contents(self, letter):
+    def add_contents(self, letter) -> None:
         """Add content to bottle with checks for volume"""
         if len(self.contents) < self.volume:
             self.contents.append(letter)
         else:
             print("Bottle is full")
 
-    def remove_contents(self):
+    def remove_contents(self) -> str:
         """Remove the top level from a bottle"""
         return self.contents.pop()
 
-    def show_contents(self):
+    def show_contents(self) -> tuple[str, list]:
         """Show contents of bottle with label"""
         return self.name, self.contents
 
-    def has_room(self):
+    def has_room(self) -> bool:
         """Is the bottle full?"""
         return len(self.contents) < self.volume
 
-    def valid_pour(self, content):
-        """Is it a valid pour either empty or contents poor matches the top layer in the bottle"""
+    def valid_pour(self, content) -> bool:
+        """Is it a valid pour either empty or contents pour matches the top layer in the bottle"""
         return (
             len(self.contents) == 0 or self.has_room() and self.contents[-1] == content
         )
